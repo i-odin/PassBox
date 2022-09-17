@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using PassBox.Mobile.Views;
 
 namespace PassBox.Mobile.ViewModels
 {
@@ -12,9 +13,15 @@ namespace PassBox.Mobile.ViewModels
         private string _password;
 
         [RelayCommand]
-        public void Login()
+        public async void Login()
         {
-            //LoginCommand.Execute(this);
+            await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+        }
+
+        [RelayCommand]
+        public async void Register()
+        {
+
         }
     }
 }
