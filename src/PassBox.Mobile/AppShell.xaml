@@ -9,11 +9,13 @@
     <Shell.BindingContext>
         <vm:AppShellViewModel />
     </Shell.BindingContext>
-    
-    <ShellContent Title="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" Route="LoginPage" FlyoutItemIsVisible="False"/>
 
+    <ShellContent FlyoutItemIsVisible="False" Title="LoginPage"    Route="LoginPage"    ContentTemplate="{DataTemplate local:LoginPage}"/>
+    <ShellContent FlyoutItemIsVisible="False" Title="RegisterPage" Route="RegisterPage" ContentTemplate="{DataTemplate local:RegisterPage}"/>
+    
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Home" ContentTemplate="{DataTemplate local:HomePage}" Route="HomePage" />
+
     </FlyoutItem>
 
     <Shell.FlyoutFooter>

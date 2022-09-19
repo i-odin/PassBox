@@ -13,15 +13,16 @@ namespace PassBox.Mobile.ViewModels
         private string _password;
 
         [RelayCommand]
-        public async void Login()
+        public async virtual void Login()
         {
+            //TODO: Логика проверки логина и пароля
             await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
         }
 
         [RelayCommand]
-        public async void Register()
+        public async virtual void Register()
         {
-
+            await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
         }
     }
 }
