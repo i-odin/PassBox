@@ -11,11 +11,6 @@ namespace PassBox.Mobile.ViewModels
         [ObservableProperty]
         private ObservableCollection<PasswordInfo> _passwordInfos;
 
-        public PasswordInfoListViewModel()
-        {
-            Load();
-        }
-
         [RelayCommand]
         public async void AddUpdatePasswordInfo()
         {
@@ -43,8 +38,6 @@ namespace PassBox.Mobile.ViewModels
             }
         }
 
-        //TODO: Сделать загрузку
-        [RelayCommand]
         public void Load()
         {
             if(IsBusy) return;

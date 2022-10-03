@@ -1,4 +1,3 @@
-using Microsoft.Maui.Controls.Platform;
 using PassBox.Mobile.ViewModels;
 
 namespace PassBox.Mobile.Views;
@@ -10,10 +9,12 @@ public partial class PasswordInfoListPage : ContentPage
 		InitializeComponent();
 	}
 
-	/*protected override void OnAppearing()
+	protected override void OnNavigatedTo(NavigatedToEventArgs args)
 	{
-		base.OnAppearing();
-		var viewModel = BindingContext as PasswordInfoListViewModel;
-		viewModel?.OnAppearing();
-    }*/
+        base.OnNavigatedTo(args);
+
+        //TODO: Ќаверно костыльно, но пока не знаю как обновл€ть CollectionView
+        var context = BindingContext as PasswordInfoListViewModel;
+        context?.Load();
+    }
 }
