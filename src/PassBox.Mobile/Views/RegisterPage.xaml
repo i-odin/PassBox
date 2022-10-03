@@ -17,25 +17,25 @@
             <Image Source="logo.png" HeightRequest="70" WidthRequest="70"  HorizontalOptions="StartAndExpand"/>
 
             <StackLayout Margin="0,80">
-                <Label Text="Welcome Back" FontSize="32" TextColor="{DynamicResource Secondary}" FontFamily="Sitka"/>
-                <Label Text="Register continue" FontSize="16" TextColor="{DynamicResource Secondary}" FontFamily="OpenSansRegular"/>
+                <Label Text="Приветствую!" FontSize="32" TextColor="{DynamicResource Secondary}" FontFamily="Sitka"/>
+                <Label Text="Регистрируйтесь..." FontSize="16" TextColor="{DynamicResource Secondary}" FontFamily="OpenSansRegular"/>
             </StackLayout>
 
             <StackLayout>
-                <Label Text="User Name" FontSize="16" TextColor="{DynamicResource Secondary}" FontFamily="OpenSansRegular"/>
+                <Label Text="Имя пользователя" FontSize="16" TextColor="{DynamicResource Secondary}" FontFamily="OpenSansRegular"/>
                 <Grid Margin="0,5">
                     <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
                     <Entry Text="{Binding UserName}" BackgroundColor="Transparent" TextColor="White" PlaceholderColor="LightGray" Keyboard="Email"/>
                 </Grid>
 
-                <Label Text="Password" FontSize="16" TextColor="{DynamicResource Secondary}" FontFamily="OpenSansRegular"/>
+                <Label Text="Пароль" FontSize="16" TextColor="{DynamicResource Secondary}" FontFamily="OpenSansRegular"/>
                 <Grid Margin="0,5">
                     <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
                     <Entry Text="{Binding Password}" BackgroundColor="Transparent" TextColor="White" PlaceholderColor="LightGray" IsPassword="True"/>
                 </Grid>
             </StackLayout>
 
-            <Button Text ="Register" Margin="0,15" BackgroundColor="{DynamicResource Secondary}" TextColor="{DynamicResource Primary}" FontFamily="OpenSansBold" Command="{Binding RegisterCommand}"/>
+            <Button Text ="Регистрация" Margin="0,15" BackgroundColor="{DynamicResource Secondary}" TextColor="{DynamicResource Primary}" FontFamily="OpenSansBold" Command="{Binding RegisterCommand}"/>
 
             <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
                 <!-- 
@@ -45,7 +45,7 @@
                     </Label.GestureRecognizers>
                 </Label>
                 -->
-                <Label Text="Sign In" FontSize="16" TextColor="{DynamicResource Secondary}" FontFamily="OpenSansRegular" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                <Label Text="Войти" FontSize="16" TextColor="{DynamicResource Secondary}" FontFamily="OpenSansRegular" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding LoginCommand}"/>
                     </Label.GestureRecognizers>

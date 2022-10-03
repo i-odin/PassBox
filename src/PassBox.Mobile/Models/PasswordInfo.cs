@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace PassBox.Mobile.Models
 {
+    //TODO: Перейти на Site
     public class PasswordInfo
     {
         public long Id { get; set; }
