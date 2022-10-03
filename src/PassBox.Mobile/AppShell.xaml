@@ -12,10 +12,10 @@
 
     <ShellContent FlyoutItemIsVisible="False" Title="LoginPage"    Route="LoginPage"    ContentTemplate="{DataTemplate local:LoginPage}"/>
     <ShellContent FlyoutItemIsVisible="False" Title="RegisterPage" Route="RegisterPage" ContentTemplate="{DataTemplate local:RegisterPage}"/>
+    <ShellContent FlyoutItemIsVisible="False" Title="PasswordInfoAddUpdatePage" Route="PasswordInfoAddUpdatePage" ContentTemplate="{DataTemplate local:PasswordInfoAddUpdatePage}"/>
     
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Home" ContentTemplate="{DataTemplate local:HomePage}" Route="HomePage" />
-
+        <ShellContent Title="Password List" Route="PasswordInfoListPage" ContentTemplate="{DataTemplate local:PasswordInfoListPage}"/>
     </FlyoutItem>
 
     <Shell.FlyoutFooter>

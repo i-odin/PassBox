@@ -4,7 +4,7 @@ using PassBox.Mobile.Views;
 
 namespace PassBox.Mobile.ViewModels
 {
-    public partial class LiginPageViewModel : BaseViewModel
+    public partial class LoginPageViewModel : BaseViewModel
     {
         [ObservableProperty]
         private string _userName;
@@ -13,10 +13,10 @@ namespace PassBox.Mobile.ViewModels
         private string _password;
 
         [RelayCommand]
-        public async virtual void Login()
+        public async virtual Task Login()
         {
             //TODO: Логика проверки логина и пароля
-            await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+            await Shell.Current.GoToAsync($"//{nameof(PasswordInfoListPage)}");
         }
 
         [RelayCommand]

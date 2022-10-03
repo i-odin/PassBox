@@ -2,9 +2,9 @@
 
 namespace PassBox.Mobile.ViewModels
 {
-    public partial class RegisterPageViewModel : LiginPageViewModel
+    public partial class RegisterPageViewModel : LoginPageViewModel
     {
-        public override async void Login()
+        public override async Task Login()
         {
             await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
@@ -12,7 +12,7 @@ namespace PassBox.Mobile.ViewModels
         public async override void Register()
         {
             //TODO: Логика регистрации
-            Login();
+            await base.Login();
         }
     }
 }

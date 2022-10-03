@@ -9,7 +9,7 @@
              BackgroundColor="{DynamicResource Primary}">
 
     <ContentPage.BindingContext>
-        <vm:LiginPageViewModel />
+        <vm:LoginPageViewModel />
     </ContentPage.BindingContext>
 
     <Grid>
