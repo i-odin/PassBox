@@ -15,16 +15,20 @@ namespace PassBox.Mobile.ViewModels
         public async void AddUpdatePasswordInfo()
         {
             var result = false;
-            if(PasswordInfo.Id > 0)
+            if(PasswordInfo?.Id > 0)
             {
                 result = PasswordInfoService.Update(PasswordInfo);
             }
             else
             {
-                var item = PasswordInfo.Create();
-                item.Data = PasswordInfo.Data;
-                item.Name = PasswordInfo.Name;
-                result = PasswordInfoService.Add(item);
+                //костыль
+                if(PasswordInfo != null)
+                {
+                    var item = PasswordInfo.Create();
+                    item.Data = PasswordInfo.Data;
+                    item.Name = PasswordInfo.Name;
+                    result = PasswordInfoService.Add(item);
+                }
             }
 
             if(result)

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PassBox.Mobile.Views.SiteViewPage"
+             xmlns:vm="clr-namespace:PassBox.Mobile.ViewModels;assembly=PassBox.Mobile"
+             xmlns:m="clr-namespace:PassBox.Mobile.Models;assembly=PassBox.Mobile"
+             Title="Сайты">
+
+    <ContentPage.BindingContext>
+        <vm:SiteViewModel />
+    </ContentPage.BindingContext>
+    
+    <StackLayout Margin="10">
+        <Label Text="Password Info List" FontSize="28"/>
+        <Button Text="Add Password Info" Command="{Binding AddUpdatePasswordInfoCommand}" HorizontalOptions="EndAndExpand"/>
+
+        <CollectionView ItemsSource="{Binding PasswordInfos}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="m:PasswordInfo">
+                    <Frame Margin="10" Padding="10">
+                        <StackLayout >
+                            <HorizontalStackLayout Spacing="15">
+                                <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold"/>
+                                <Label Text="{Binding Data}" FontSize="18" FontAttributes="Bold"/>
+                            </HorizontalStackLayout>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:PasswordInfoListViewModel}}, Path=DicplayActionCommand}" CommandParameter="{Binding .}"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

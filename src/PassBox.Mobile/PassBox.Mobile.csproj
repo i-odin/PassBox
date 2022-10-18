@@ -53,6 +53,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\SiteViewPage.xaml.cs">
+	    <DependentUpon>SiteViewPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\PasswordInfoListPage.xaml.cs">
 	    <DependentUpon>PasswordInfoListPage.xaml</DependentUpon>
 	  </Compile>
@@ -60,6 +63,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SiteViewPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\PasswordInfoAddUpdatePage.xaml">
