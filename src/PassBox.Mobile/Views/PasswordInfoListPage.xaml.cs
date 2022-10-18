@@ -4,8 +4,9 @@ namespace PassBox.Mobile.Views;
 
 public partial class PasswordInfoListPage : ContentPage
 {
-	public PasswordInfoListPage()
+	public PasswordInfoListPage(PasswordInfoListViewModel vm)
 	{
+		BindingContext = vm;
 		InitializeComponent();
 	}
 

@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.EntityFrameworkCore;
+using PassBox.Mobile.DataBase;
 using PassBox.Mobile.Models;
 using PassBox.Mobile.Views;
 using System.Collections.ObjectModel;
@@ -8,6 +10,12 @@ namespace PassBox.Mobile.ViewModels
 {
     public partial class PasswordInfoListViewModel : BaseViewModel
     {
+        private ApplicationContext _context;
+        public PasswordInfoListViewModel(ApplicationContext context)
+        {
+            _context = context;
+        }
+
         [ObservableProperty]
         private ObservableCollection<PasswordInfo> _passwordInfos;
 
@@ -31,10 +39,9 @@ namespace PassBox.Mobile.ViewModels
             }
             else if(responce == "Delete")
             {
-                if (PasswordInfoService.Remove(info))
-                {
-                    _passwordInfos = new ObservableCollection<PasswordInfo>(PasswordInfoService.GetPasswordInfos());
-                }
+                _passwordInfos.Remove(info);
+                _context.Remove(info);
+                _context.SaveChanges();
             }
         }
 
@@ -45,7 +52,7 @@ namespace PassBox.Mobile.ViewModels
             IsBusy = true;
             try
             {
-                PasswordInfos = new ObservableCollection<PasswordInfo>(PasswordInfoService.GetPasswordInfos());
+                PasswordInfos = new ObservableCollection<PasswordInfo>(_context.PasswordInfos);
             }
             catch (Exception)
             {

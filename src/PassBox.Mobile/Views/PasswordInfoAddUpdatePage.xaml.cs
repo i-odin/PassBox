@@ -1,9 +1,12 @@
+using PassBox.Mobile.ViewModels;
+
 namespace PassBox.Mobile.Views;
 
 public partial class PasswordInfoAddUpdatePage : ContentPage
 {
-	public PasswordInfoAddUpdatePage()
+	public PasswordInfoAddUpdatePage(PasswordInfoAddUpdateViewModel vm)
 	{
+		BindingContext = vm;
 		InitializeComponent();
 	}
 }

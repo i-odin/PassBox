@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.EntityFrameworkCore; //TODO
+using PassBox.Mobile.DataBase;
 using PassBox.Mobile.Models;
 using PassBox.Mobile.Views;
 
@@ -8,6 +10,12 @@ namespace PassBox.Mobile.ViewModels
     [QueryProperty(nameof(PasswordInfo), nameof(PasswordInfo))]
     public partial class PasswordInfoAddUpdateViewModel : BaseViewModel
     {
+        private ApplicationContext _context;
+        public PasswordInfoAddUpdateViewModel(ApplicationContext context)
+        {
+            _context = context;
+        }
+
         [ObservableProperty]
         private PasswordInfo _passwordInfo = new PasswordInfo();
 
@@ -15,9 +23,11 @@ namespace PassBox.Mobile.ViewModels
         public async void AddUpdatePasswordInfo()
         {
             var result = false;
-            if(PasswordInfo?.Id > 0)
+            if(PasswordInfo?.Id != Guid.Empty)
             {
-                result = PasswordInfoService.Update(PasswordInfo);
+                _context.PasswordInfos.Add(PasswordInfo);
+                _context.SaveChanges();
+                result = true;
             }
             else
             {
@@ -27,7 +37,10 @@ namespace PassBox.Mobile.ViewModels
                     var item = PasswordInfo.Create();
                     item.Data = PasswordInfo.Data;
                     item.Name = PasswordInfo.Name;
-                    result = PasswordInfoService.Add(item);
+
+                    _context.PasswordInfos.Add(item);
+                    _context.SaveChanges();
+                    result = true;
                 }
             }
 
