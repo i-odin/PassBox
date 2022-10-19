@@ -17,17 +17,17 @@
         <CollectionView ItemsSource="{Binding PasswordInfos}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="m:PasswordInfo">
-                    <Frame Margin="10" Padding="10">
+                    <Border Margin="10" Padding="10">
                         <StackLayout >
                             <HorizontalStackLayout Spacing="15">
                                 <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold"/>
                                 <Label Text="{Binding Data}" FontSize="18" FontAttributes="Bold"/>
                             </HorizontalStackLayout>
                         </StackLayout>
-                        <Frame.GestureRecognizers>
+                        <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:PasswordInfoListViewModel}}, Path=DicplayActionCommand}" CommandParameter="{Binding .}"/>
-                        </Frame.GestureRecognizers>
-                    </Frame>
+                        </Border.GestureRecognizers>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
