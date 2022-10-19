@@ -13,6 +13,7 @@ namespace PassBox.Mobile.DataBase
         }
 
         public DbSet<PasswordInfo> PasswordInfos { get; set; }
+        //public DbSet<Site> Sites { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -16,22 +16,20 @@
         <StackLayout Margin="30">
             <Image Source="logo.png" HeightRequest="70" WidthRequest="70"  HorizontalOptions="StartAndExpand"/>
 
-            <StackLayout Margin="0,80">
+            <StackLayout Margin="0,60">
                 <Label Text="Добро пожаловать!" FontSize="32" TextColor="{DynamicResource Secondary}" FontFamily="Sitka"/>
                 <Label Text="Войдите, чтобы продолжить..." FontSize="16" TextColor="{DynamicResource Secondary}" FontFamily="OpenSansRegular"/>
             </StackLayout>
 
             <StackLayout>
-                <Label Text="Имя пользователя" FontSize="16" TextColor="{DynamicResource Secondary}" FontFamily="OpenSansRegular"/>
                 <Grid Margin="0,5">
                     <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
-                    <Entry Text="{Binding UserName}" BackgroundColor="Transparent" TextColor="White" PlaceholderColor="LightGray" Keyboard="Email"/>
+                    <Entry Text="{Binding UserName}" BackgroundColor="Transparent" TextColor="White" Keyboard="Email" Placeholder="Имя пользователя" PlaceholderColor="{DynamicResource Secondary}"/>
                 </Grid>
 
-                <Label Text="Пароль" FontSize="16" TextColor="{DynamicResource Secondary}" FontFamily="OpenSansRegular"/>
                 <Grid Margin="0,5">
                     <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
-                    <Entry Text="{Binding Password}" BackgroundColor="Transparent" TextColor="White" PlaceholderColor="LightGray" IsPassword="True"/>
+                    <Entry Text="{Binding Password}" BackgroundColor="Transparent" TextColor="White" IsPassword="True" Placeholder="Пароль" PlaceholderColor="{DynamicResource Secondary}"/>
                 </Grid>
             </StackLayout>
 

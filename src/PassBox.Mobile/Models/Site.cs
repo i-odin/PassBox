@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PassBox.Mobile.Models
 {
-    public class Site : EncryptEntity
+    public class Site : PassBoxEntity
     {
         public string Address { get; set; }
         public List<Account> Accounts { get; set; }
