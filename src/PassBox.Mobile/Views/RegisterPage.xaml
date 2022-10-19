@@ -23,12 +23,12 @@
 
             <StackLayout>
                 <Grid Margin="0,5">
-                    <Frame Opacity="0.3" BackgroundColor="White"/>
+                    <Border Opacity="0.3" BackgroundColor="White"/>
                     <Entry Text="{Binding UserName}" BackgroundColor="Transparent" TextColor="White" Keyboard="Email" Placeholder="Имя пользователя" PlaceholderColor="{DynamicResource Secondary}"/>
                 </Grid>
 
                 <Grid Margin="0,5">
-                    <Frame Opacity="0.3" BackgroundColor="White"/>
+                    <Border Opacity="0.3" BackgroundColor="White"/>
                     <Entry Text="{Binding Password}" BackgroundColor="Transparent" TextColor="White" IsPassword="True" Placeholder="Пароль" PlaceholderColor="{DynamicResource Secondary}"/>
                 </Grid>
             </StackLayout>
