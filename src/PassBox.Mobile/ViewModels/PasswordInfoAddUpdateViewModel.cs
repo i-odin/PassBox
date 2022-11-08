@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.EntityFrameworkCore; //TODO
 using PassBox.Mobile.DataBase;
 using PassBox.Mobile.Models;
 using PassBox.Mobile.Views;
@@ -34,11 +33,10 @@ namespace PassBox.Mobile.ViewModels
                 //костыль
                 if(PasswordInfo != null)
                 {
-                    var item = PasswordInfo.Create();
-                    item.Data = PasswordInfo.Data;
-                    item.Name = PasswordInfo.Name;
-
-                    _context.PasswordInfos.Add(item);
+                    _context.PasswordInfos.Add(PasswordInfo.Create<PasswordInfo>(x => {
+                        x.Data = PasswordInfo.Data;
+                        x.Name = PasswordInfo.Name;
+                    }));
                     _context.SaveChanges();
                     result = true;
                 }
