@@ -1,13 +1,9 @@
-﻿namespace PassBox.Mobile.Models
-{
-    //TODO: Перейти на Site
-    public class PasswordInfo : EncryptEntity
-    {
-        public string Data { get; set; }
+﻿using PassBox.Mobile.Models.Base;
 
-        public static PasswordInfo Create()
-        {
-            return new PasswordInfo { Id = NewId() };
-        }
-    }
+namespace PassBox.Mobile.Models;
+
+//TODO: Перейти на Site
+public class PasswordInfo : EncryptEntity
+{
+    public string Data { get; set; }
 }

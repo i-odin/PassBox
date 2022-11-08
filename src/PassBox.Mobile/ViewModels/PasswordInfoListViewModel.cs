@@ -1,67 +1,66 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.EntityFrameworkCore;
 using PassBox.Mobile.DataBase;
 using PassBox.Mobile.Models;
+using PassBox.Mobile.ViewModels.Base;
 using PassBox.Mobile.Views;
 using System.Collections.ObjectModel;
 
-namespace PassBox.Mobile.ViewModels
+namespace PassBox.Mobile.ViewModels;
+
+public partial class PasswordInfoListViewModel : BaseViewModel
 {
-    public partial class PasswordInfoListViewModel : BaseViewModel
+    private ApplicationContext _context;
+    public PasswordInfoListViewModel(ApplicationContext context)
     {
-        private ApplicationContext _context;
-        public PasswordInfoListViewModel(ApplicationContext context)
+        _context = context;
+    }
+
+    [ObservableProperty]
+    private ObservableCollection<PasswordInfo> _passwordInfos;
+
+    [RelayCommand]
+    public async void AddUpdatePasswordInfo()
+    {
+        await Shell.Current.GoToAsync($"//{nameof(PasswordInfoAddUpdatePage)}");
+    }
+
+    [RelayCommand]
+    public async void DicplayAction(PasswordInfo info)
+    {
+        var responce = await Shell.Current.DisplayActionSheet("Select option", "OK", null, "Edit", "Delete");
+        if(responce == "Edit")
         {
-            _context = context;
+            var @params = new Dictionary<string, object>
+            {
+                { nameof(PasswordInfo), info }
+            };
+            await Shell.Current.GoToAsync($"//{nameof(PasswordInfoAddUpdatePage)}", @params);
         }
-
-        [ObservableProperty]
-        private ObservableCollection<PasswordInfo> _passwordInfos;
-
-        [RelayCommand]
-        public async void AddUpdatePasswordInfo()
+        else if(responce == "Delete")
         {
-            await Shell.Current.GoToAsync($"//{nameof(PasswordInfoAddUpdatePage)}");
+            _passwordInfos.Remove(info);
+            _context.Remove(info);
+            _context.SaveChanges();
         }
+    }
 
-        [RelayCommand]
-        public async void DicplayAction(PasswordInfo info)
+    public void Load()
+    {
+        if(IsBusy) return;
+
+        IsBusy = true;
+        try
         {
-            var responce = await Shell.Current.DisplayActionSheet("Select option", "OK", null, "Edit", "Delete");
-            if(responce == "Edit")
-            {
-                var @params = new Dictionary<string, object>
-                {
-                    { nameof(PasswordInfo), info }
-                };
-                await Shell.Current.GoToAsync($"//{nameof(PasswordInfoAddUpdatePage)}", @params);
-            }
-            else if(responce == "Delete")
-            {
-                _passwordInfos.Remove(info);
-                _context.Remove(info);
-                _context.SaveChanges();
-            }
+            PasswordInfos = new ObservableCollection<PasswordInfo>(_context.PasswordInfos);
         }
-
-        public void Load()
+        catch (Exception)
         {
-            if(IsBusy) return;
-
-            IsBusy = true;
-            try
-            {
-                PasswordInfos = new ObservableCollection<PasswordInfo>(_context.PasswordInfos);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            throw;
+        }
+        finally
+        {
+            IsBusy = false;
         }
     }
 }

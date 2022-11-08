@@ -1,14 +1,13 @@
 ﻿using PassBox.Mobile.Views;
 
-namespace PassBox.Mobile
-{
-    public partial class AppShell : Shell
-    {
-        public AppShell()
-        {
-            InitializeComponent();
+namespace PassBox.Mobile;
 
-            //Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
-        }
+public partial class AppShell : Shell
+{
+    public AppShell()
+    {
+        InitializeComponent();
+
+        //Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
     }
 }

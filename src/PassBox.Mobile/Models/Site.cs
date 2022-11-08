@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PassBox.Mobile.Models.Base;
 
-namespace PassBox.Mobile.Models
+namespace PassBox.Mobile.Models;
+
+public class Site : PassBoxEntity
 {
-    public class Site : PassBoxEntity
-    {
-        public string Address { get; set; }
-        public List<Account> Accounts { get; set; }
-    }
+    public string Address { get; set; }
+    public List<Account> Accounts { get; set; }
 }

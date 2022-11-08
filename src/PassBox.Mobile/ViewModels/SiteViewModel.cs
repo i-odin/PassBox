@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PassBox.Mobile.ViewModels.Base;
 
-namespace PassBox.Mobile.ViewModels
+namespace PassBox.Mobile.ViewModels;
+
+internal class SiteViewModel : BaseViewModel
 {
-    internal class SiteViewModel
-    {
-    }
 }
