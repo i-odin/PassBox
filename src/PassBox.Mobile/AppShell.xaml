@@ -22,11 +22,11 @@
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="О приложении" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}"/>
     </FlyoutItem>
-    <!--
+    
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Сайты" Route="SiteViewPage" ContentTemplate="{DataTemplate local:SiteViewPage}"/>
     </FlyoutItem>
-    -->
+    
     <Shell.FlyoutFooter>
         <StackLayout Padding="20">
             <Button Text = "Выйти" Command="{Binding SignOutCommand}"/>

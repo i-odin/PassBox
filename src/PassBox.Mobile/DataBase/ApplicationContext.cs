@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using PassBox.Mobile.DataBase.Configurations;
 using PassBox.Mobile.Models;
 
-namespace PassBox.Mobile.DataBase;;
+namespace PassBox.Mobile.DataBase;
 
 public class ApplicationContext : DataBaseContext<ApplicationContext>
 {
