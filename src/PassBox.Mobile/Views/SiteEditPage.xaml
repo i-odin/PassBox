@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PassBox.Mobile.Views.SiteEditPage"
+             xmlns:vm="clr-namespace:PassBox.Mobile.ViewModels;assembly=PassBox.Mobile"
+             Title="Добавление">
+
+    <ContentPage.BindingContext>
+        <vm:SiteEditModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Margin="10">
+
+        <Entry Margin="0,5" Placeholder="Название" Text="{Binding Site.Name}" PlaceholderColor="Black" />
+        <Entry Margin="0,5" Placeholder="Адрес сайта" Text="{Binding Site.Address}" PlaceholderColor="Black"/>
+
+        <Button Text="Сохранить" Command="{Binding SubmitCommand}"/>
+        <Button Text="Назад" Command="{Binding BackCommand}"/>
+    </StackLayout>
+
+
+</ContentPage>

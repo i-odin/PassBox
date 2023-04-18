@@ -9,19 +9,18 @@
     <ContentPage.BindingContext>
         <vm:SiteViewModel />
     </ContentPage.BindingContext>
-    
-    <StackLayout Margin="10">
-        <Label Text="Password Info List" FontSize="28"/>
-        <Button Text="Add Password Info" Command="{Binding AddUpdatePasswordInfoCommand}" HorizontalOptions="EndAndExpand"/>
 
-        <CollectionView ItemsSource="{Binding PasswordInfos}">
+    <StackLayout Margin="10">
+        <Button Text="Добавить" Command="{Binding EditCommand}" HorizontalOptions="EndAndExpand"/>
+
+        <CollectionView ItemsSource="{Binding Sites}">
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="m:PasswordInfo">
+                <DataTemplate x:DataType="m:Site">
                     <Border Margin="10" Padding="10">
                         <StackLayout >
                             <HorizontalStackLayout Spacing="15">
                                 <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold"/>
-                                <Label Text="{Binding Data}" FontSize="18" FontAttributes="Bold"/>
+                                <Label Text="{Binding Address}" FontSize="18" FontAttributes="Bold"/>
                             </HorizontalStackLayout>
                         </StackLayout>
                         <Border.GestureRecognizers>

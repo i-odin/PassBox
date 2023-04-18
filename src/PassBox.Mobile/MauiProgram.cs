@@ -16,7 +16,6 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             })
             .Services
-            //TODO: держит ли коннект?
             .AddSqlite<ApplicationContext>($"Filename={Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PassBox.db")}")
             //.AddDbContextFactory<ApplicationContext>(options => options.UseSqlite($"Filename={Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PassBox.db")}"))
             .AddSingleton<PasswordInfoListViewModel>()
