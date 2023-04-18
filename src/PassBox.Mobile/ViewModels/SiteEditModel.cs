@@ -6,6 +6,7 @@ using PassBox.Mobile.Views;
 
 namespace PassBox.Mobile.ViewModels;
 
+[QueryProperty(nameof(Site), nameof(Site))]
 public partial class SiteEditModel : BaseViewModel
 {
     [ObservableProperty]
@@ -14,6 +15,7 @@ public partial class SiteEditModel : BaseViewModel
     [RelayCommand]
     public async void Submit()
     {
+        var qwe = Site;
         Back();
     }
 

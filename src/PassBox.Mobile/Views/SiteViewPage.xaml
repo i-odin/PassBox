@@ -24,7 +24,7 @@
                             </HorizontalStackLayout>
                         </StackLayout>
                         <Border.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:PasswordInfoListViewModel}}, Path=DicplayActionCommand}" CommandParameter="{Binding .}"/>
+                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:SiteViewModel}}, Path=DicplayActionCommand}" CommandParameter="{Binding .}"/>
                         </Border.GestureRecognizers>
                     </Border>
                 </DataTemplate>

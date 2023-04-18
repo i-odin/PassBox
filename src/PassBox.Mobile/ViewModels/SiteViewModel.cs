@@ -20,4 +20,28 @@ public partial class SiteViewModel : BaseViewModel
     {
         await Shell.Current.GoToAsync($"//{nameof(SiteEditPage)}");
     }
+
+    [RelayCommand]
+    public async void DicplayAction(Site site)
+    {
+        var responce = await Shell.Current.DisplayActionSheet("Меню", null, null, "Отредактировать", "Удалить", "Добавить аккаунт", "Показать аккаунты");
+        if (responce == "Отредактировать")
+        {
+            var @params = new Dictionary<string, object>
+            {
+                { "Name", site.Name },
+                { "Site", site }
+            };
+            await Shell.Current.GoToAsync($"//{nameof(SiteEditPage)}", @params);
+        }
+        else if (responce == "Удалить")
+        {
+        }
+        else if (responce == "Добавить аккаунт")
+        {
+        }
+        else if (responce == "Показать аккаунты")
+        {
+        }
+    }
 }
