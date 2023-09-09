@@ -11,7 +11,7 @@ public partial class SiteViewModel : BaseViewModel
     {
         get
         {
-            return new List<Site> { new Site { Name = "1", Address = "2"}, new Site { Name = "3", Address = "4" }, new Site { Name = "5", Address = "6" } };
+            return new List<Site> { new Site { Name = "Google", Address = "google.com" }, new Site { Name = "Yandex", Address = "yandex.ru" }, new Site { Name = "Vk", Address = "vk.ru" } };
         }
     }
 

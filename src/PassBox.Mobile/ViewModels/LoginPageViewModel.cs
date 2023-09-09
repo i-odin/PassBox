@@ -17,7 +17,7 @@ public partial class LoginPageViewModel : BaseViewModel
     public async virtual Task Login()
     {
         //TODO: Логика проверки логина и пароля
-        await Shell.Current.GoToAsync($"//{nameof(PasswordInfoListPage)}");
+        await Shell.Current.GoToAsync($"//{nameof(SiteViewPage)}");
     }
 
     [RelayCommand]

@@ -10,22 +10,15 @@
         <vm:SiteViewModel />
     </ContentPage.BindingContext>
 
-    <StackLayout Margin="10">
-        <Button Text="Добавить" Command="{Binding EditCommand}" HorizontalOptions="EndAndExpand"/>
-
+    <StackLayout Margin="5">
         <CollectionView ItemsSource="{Binding Sites}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="m:Site">
-                    <Border Margin="10" Padding="10">
-                        <StackLayout >
-                            <HorizontalStackLayout Spacing="15">
-                                <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold"/>
-                                <Label Text="{Binding Address}" FontSize="18" FontAttributes="Bold"/>
-                            </HorizontalStackLayout>
-                        </StackLayout>
-                        <Border.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:SiteViewModel}}, Path=DicplayActionCommand}" CommandParameter="{Binding .}"/>
-                        </Border.GestureRecognizers>
+                    <Border Stroke ="{DynamicResource Primary}">
+                        <VerticalStackLayout Margin="10,2,0,6">
+                            <Label Text="{Binding Name}" TextColor="{DynamicResource Primary}"/>
+                            <Label Text="{Binding Address}" TextColor="Grey"/>
+                        </VerticalStackLayout>
                     </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

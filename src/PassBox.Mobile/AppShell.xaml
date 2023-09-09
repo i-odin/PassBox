@@ -12,19 +12,14 @@
 
     <ShellContent FlyoutItemIsVisible="False" Title="LoginPage"    Route="LoginPage"    ContentTemplate="{DataTemplate local:LoginPage}"/>
     <ShellContent FlyoutItemIsVisible="False" Title="RegisterPage" Route="RegisterPage" ContentTemplate="{DataTemplate local:RegisterPage}"/>
-    <ShellContent FlyoutItemIsVisible="False" Title="PasswordInfoAddUpdatePage" Route="PasswordInfoAddUpdatePage" ContentTemplate="{DataTemplate local:PasswordInfoAddUpdatePage}"/>
     <ShellContent FlyoutItemIsVisible="False" Title="SiteEditPage" Route="SiteEditPage" ContentTemplate="{DataTemplate local:SiteEditPage}"/>
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Пароли" Route="PasswordInfoListPage" ContentTemplate="{DataTemplate local:PasswordInfoListPage}"/>
+        <ShellContent Title="Сайты" Route="SiteViewPage" ContentTemplate="{DataTemplate local:SiteViewPage}"/>
     </FlyoutItem>
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="О приложении" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}"/>
-    </FlyoutItem>
-    
-    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Сайты" Route="SiteViewPage" ContentTemplate="{DataTemplate local:SiteViewPage}"/>
     </FlyoutItem>
     
     <Shell.FlyoutFooter>
