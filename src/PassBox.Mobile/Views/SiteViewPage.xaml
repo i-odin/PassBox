@@ -16,26 +16,27 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="m:Site">
                     <Border Stroke ="{DynamicResource Primary}">
-                        <toolkit:Expander Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.PrintCommand}" CommandParameter="{Binding Id}">    
+                        <toolkit:Expander x:Name="expander" Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.PrintCommand}" 
+                                          CommandParameter="{Binding Id}" IsExpanded="{Binding Source={x:Reference collectionView}, Path=BindingContext.IsExpanded}">
                             <toolkit:Expander.Header>
                                 <VerticalStackLayout Margin="10,2,0,6">
                                     <Label Text="{Binding Name}" TextColor="{DynamicResource Primary}"/>
                                     <Label Text="{Binding Address}" TextColor="Grey"/>
                                 </VerticalStackLayout>
                             </toolkit:Expander.Header>
-                            <HorizontalStackLayout Padding="10">
-                                <CollectionView ItemsSource="{Binding BindingContext.Accounts}" >
-                                    <CollectionView.ItemTemplate>
-                                        <DataTemplate x:DataType="m:Account">
-                                            <VerticalStackLayout Margin="10,2,0,6">
-                                                <Label Text="{Binding Name}" TextColor="{DynamicResource Primary}"/>
-                                                <Label Text="{Binding Password}" TextColor="Grey"/>
-                                                <Label Text="{Binding Description}" TextColor="Grey"/>
-                                            </VerticalStackLayout>
-                                        </DataTemplate>
-                                    </CollectionView.ItemTemplate>
-                                </CollectionView>
-                            </HorizontalStackLayout>
+                            <toolkit:Expander.Content>
+                                <HorizontalStackLayout Padding="10">
+                                    <CollectionView ItemsSource="{Binding Source={x:Reference collectionView}, Path=BindingContext.Accounts}" >
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate x:DataType="m:Account">
+                                                <HorizontalStackLayout>
+                                                    <Label Text="{Binding Name}" TextColor="{DynamicResource Primary}"/>
+                                                </HorizontalStackLayout>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </HorizontalStackLayout>
+                            </toolkit:Expander.Content>
                         </toolkit:Expander>
                     </Border>
                 </DataTemplate>
