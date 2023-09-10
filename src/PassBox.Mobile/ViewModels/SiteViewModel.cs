@@ -20,8 +20,7 @@ public partial class SiteViewModel : BaseViewModel
     [ObservableProperty]
     private IEnumerable<Account> accounts;
 
-    //[ObservableProperty]
-    //private bool isExpanded;
+    public bool IsExpanded { get; set; }
 
     [RelayCommand]
     public async void Edit()
@@ -32,9 +31,10 @@ public partial class SiteViewModel : BaseViewModel
     [RelayCommand]
     public void Print(Guid id)
     {
-        //var qweq = IsExpanded;
-        //Accounts.Add(new Account { Name = "Логин", Password = "фывлт2ш315тр198нат9фн1" });
-        Accounts = new List<Account> { new Account { Name = "Логин", Password = "фывлт2ш315тр198нат9фн1" }, new Account { Name = "фрпфыыджпфжд", Password = "фылафлыт 3215735", Description = "aadngn35" } };
+        if (IsExpanded)
+            Accounts = new List<Account> { new Account { Name = "Логин", Password = "фывлт2ш315тр198нат9фн1" }, new Account { Name = "фрпфыыджпфжд", Password = "фылафлыт 3215735", Description = "aadngn35" } };
+        else
+            Accounts = null;
     }
 
     [RelayCommand]
