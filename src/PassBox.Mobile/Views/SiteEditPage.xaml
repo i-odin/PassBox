@@ -17,6 +17,5 @@
         <Button Text="Сохранить" Command="{Binding SubmitCommand}"/>
         <Button Text="Назад" Command="{Binding BackCommand}"/>
     </StackLayout>
-
-
+    
 </ContentPage>
