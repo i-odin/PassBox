@@ -1,4 +1,5 @@
-﻿using PassBox.Mobile.DataBase;
+﻿using CommunityToolkit.Maui;
+using PassBox.Mobile.DataBase;
 using PassBox.Mobile.ViewModels;
 using PassBox.Mobile.Views;
 
@@ -10,6 +11,7 @@ public static class MauiProgram
     {
         var builder = MauiApp.CreateBuilder();
         builder.UseMauiApp<App>()
+            .UseMauiCommunityToolkit()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

@@ -13,7 +13,7 @@ public partial class SiteEditModel : BaseViewModel
     private Site _site = new Site();
 
     [RelayCommand]
-    public async void Submit()
+    public void Submit()
     {
         var qwe = Site;
         Back();

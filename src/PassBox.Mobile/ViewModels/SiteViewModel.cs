@@ -11,14 +11,28 @@ public partial class SiteViewModel : BaseViewModel
     {
         get
         {
-            return new List<Site> { new Site { Name = "Google", Address = "google.com" }, new Site { Name = "Yandex", Address = "yandex.ru" }, new Site { Name = "Vk", Address = "vk.ru" } };
+            return new List<Site> { new Site { Id = Guid.NewGuid(), Name = "Google", Address = "google.com" }, new Site { Id = Guid.NewGuid(), Name = "Yandex", Address = "yandex.ru" }, new Site { Id = Guid.NewGuid(), Name = "Vk", Address = "vk.ru" } };
         }
     }
+
+    public IEnumerable<Account> Accounts { get; set; }
+    /*{
+        get
+        {
+            return new List<Account> { new Account { Name = "Логин", Password = "фывлт2ш315тр198нат9фн1" }, new Account { Name = "фрпфыыджпфжд", Password = "фылафлыт 3215735", Description = "aadngn35" } };
+        }
+    }*/
 
     [RelayCommand]
     public async void Edit()
     {
         await Shell.Current.GoToAsync($"//{nameof(SiteEditPage)}");
+    }
+
+    [RelayCommand]
+    public void Print(Guid id)
+    {
+        Accounts = new List<Account> { new Account { Name = "Логин", Password = "фывлт2ш315тр198нат9фн1" }, new Account { Name = "фрпфыыджпфжд", Password = "фылафлыт 3215735", Description = "aadngn35" } };
     }
 
     [RelayCommand]

@@ -4,6 +4,7 @@
              x:Class="PassBox.Mobile.Views.SiteViewPage"
              xmlns:vm="clr-namespace:PassBox.Mobile.ViewModels;assembly=PassBox.Mobile"
              xmlns:m="clr-namespace:PassBox.Mobile.Models;assembly=PassBox.Mobile"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="Сайты">
 
     <ContentPage.BindingContext>
@@ -11,17 +12,37 @@
     </ContentPage.BindingContext>
 
     <StackLayout Margin="5">
-        <CollectionView ItemsSource="{Binding Sites}">
+        <CollectionView x:Name="collectionView" ItemsSource="{Binding Sites}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="m:Site">
                     <Border Stroke ="{DynamicResource Primary}">
-                        <VerticalStackLayout Margin="10,2,0,6">
-                            <Label Text="{Binding Name}" TextColor="{DynamicResource Primary}"/>
-                            <Label Text="{Binding Address}" TextColor="Grey"/>
-                        </VerticalStackLayout>
+                        <toolkit:Expander Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.PrintCommand}" CommandParameter="{Binding Id}">    
+                            <toolkit:Expander.Header>
+                                <VerticalStackLayout Margin="10,2,0,6">
+                                    <Label Text="{Binding Name}" TextColor="{DynamicResource Primary}"/>
+                                    <Label Text="{Binding Address}" TextColor="Grey"/>
+                                </VerticalStackLayout>
+                            </toolkit:Expander.Header>
+                            <HorizontalStackLayout Padding="10">
+                                <CollectionView ItemsSource="{Binding BindingContext.Accounts}" >
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate x:DataType="m:Account">
+                                            <VerticalStackLayout Margin="10,2,0,6">
+                                                <Label Text="{Binding Name}" TextColor="{DynamicResource Primary}"/>
+                                                <Label Text="{Binding Password}" TextColor="Grey"/>
+                                                <Label Text="{Binding Description}" TextColor="Grey"/>
+                                            </VerticalStackLayout>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </HorizontalStackLayout>
+                        </toolkit:Expander>
                     </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
     </StackLayout>
+
+    
+    
 </ContentPage>
