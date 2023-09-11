@@ -5,5 +5,5 @@ namespace PassBox.Mobile.Models;
 public class Site : PassBoxEntity
 {
     public string Address { get; set; }
-    public IEnumerable<SiteAccount> Accounts { get; set; } = new List<SiteAccount>();
+    public IEnumerable<SiteAccount> Accounts { get; set; }
 }

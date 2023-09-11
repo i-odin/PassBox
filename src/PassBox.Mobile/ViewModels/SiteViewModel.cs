@@ -12,7 +12,7 @@ public partial class SiteViewModel : BaseViewModel
 {
     public SiteViewModel() 
     {
-        Sites = new ObservableCollection<Site> { 
+        Sites = new List<Site> { 
             new Site {
                 Id = Guid.NewGuid(),
                 Name = "Google",
@@ -32,7 +32,7 @@ public partial class SiteViewModel : BaseViewModel
         };
     }
 
-    public ObservableCollection<Site> Sites { get; set; }
+    public IEnumerable<Site> Sites { get; set; }
     public bool IsExpanded { get; set; }
 
     [RelayCommand]
@@ -41,20 +41,22 @@ public partial class SiteViewModel : BaseViewModel
         foreach (var item in Sites)
         {
             item.Name = "!!!";
-        }        
-        
+        }
+        Sites.Append(new Site { Name = "test", Address = "test" });
+
         //Расшифровку возможно нужно сделать
         var site = Sites.First(x => x.Id == id);
         if (IsExpanded)
-            foreach (var item in site.Accounts)
+            //foreach (var item in site.Accounts)
             {
-                item.Name = "Расшифровали";
-                //site.Accounts = new List<SiteAccount> { new SiteAccount { Name = Guid.NewGuid().ToString(), Password = "фывлт2ш315тр198нат9фн1" }, new SiteAccount { Name = Guid.NewGuid().ToString(), Password = "фылафлыт 3215735", Description = "aadngn35" } };
+                //item.Name = "Расшифровали";
+                site.Accounts = new List<SiteAccount> { new SiteAccount { Name = Guid.NewGuid().ToString(), Password = "фывлт2ш315тр198нат9фн1" }, new SiteAccount { Name = Guid.NewGuid().ToString(), Password = "фылафлыт 3215735", Description = "aadngn35" } };
             }
         else
-            foreach (var item in site.Accounts)
+            //foreach (var item in site.Accounts)
             {
-                item.Name = "Зашифровали";
+            site.Accounts = null;
+                //item.Name = "Зашифровали";
             }
     }
 
@@ -87,43 +89,4 @@ public partial class SiteViewModel : BaseViewModel
         {
         }
     }
-
-    /*
-     <StackLayout Margin="5">
-        <CollectionView x:Name="collectionView" ItemsSource="{Binding Sites}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="m:Site">
-                    <Border Stroke ="{DynamicResource Primary}">
-                        <toolkit:Expander Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.PrintCommand}" 
-                                      CommandParameter="{Binding Id}" IsExpanded="{Binding Source={x:Reference collectionView}, Path=BindingContext.IsExpanded}">
-                            <toolkit:Expander.Header>
-                                <VerticalStackLayout Margin="10,2,0,6">
-                                    <Label Text="{Binding Name}" TextColor="{DynamicResource Primary}"/>
-                                    <Label Text="{Binding Address}" TextColor="Grey"/>
-                                </VerticalStackLayout>
-                            </toolkit:Expander.Header>
-                            <toolkit:Expander.Content>
-                                <HorizontalStackLayout Padding="10">
-                                    <CollectionView ItemsSource="{Binding Source={x:Reference collectionView}, Path=BindingContext.Accounts}" >
-                                        <CollectionView.ItemTemplate>
-                                            <DataTemplate x:DataType="m:Account">
-                                                <HorizontalStackLayout>
-                                                    <Label Text="{Binding Name}" TextColor="{DynamicResource Primary}"/>
-                                                </HorizontalStackLayout>
-                                            </DataTemplate>
-                                        </CollectionView.ItemTemplate>
-                                    </CollectionView>
-                                </HorizontalStackLayout>
-                            </toolkit:Expander.Content>
-                        </toolkit:Expander>
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </StackLayout>
-
-    <Label Text="{Binding Name}" TextColor="{DynamicResource Primary}"/>
-
-    <HorizontalStackLayout Padding="10" BindableLayout.ItemsSource="{Binding Source={x:RelativeSource AncestorType={x:Type vm:SiteViewModel}}, Path=Accounts}">
-     */
 }
