@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using PassBox.Mobile.DataBase;
+using PassBox.Mobile.ViewModels;
 
 namespace PassBox.Mobile;
 
