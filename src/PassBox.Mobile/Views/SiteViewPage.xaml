@@ -62,7 +62,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <Button ImageSource="add.png" HeightRequest="50" WidthRequest="60" Grid.Row="0" HorizontalOptions="End" VerticalOptions="End"/>
+        <Button ImageSource="add.png" Command="{Binding AddCommand}" HeightRequest="50" WidthRequest="60" Grid.Row="0" HorizontalOptions="End" VerticalOptions="End"/>
 
     </Grid>
 </ContentPage>

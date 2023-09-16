@@ -7,7 +7,7 @@ using PassBox.Mobile.Views;
 namespace PassBox.Mobile.ViewModels;
 
 [QueryProperty(nameof(Site), nameof(Site))]
-public partial class SiteEditModel : BaseViewModel
+public partial class SiteEditViewModel : BaseViewModel
 {
     [ObservableProperty]
     private Site _site = new Site();

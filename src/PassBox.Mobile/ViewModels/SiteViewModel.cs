@@ -3,7 +3,6 @@ using PassBox.Mobile.Models;
 using PassBox.Mobile.ViewModels.Base;
 using PassBox.Mobile.Views;
 using System.Collections.ObjectModel;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace PassBox.Mobile.ViewModels;
 
@@ -70,40 +69,10 @@ public partial class SiteViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    public async void Edit()
-    {
-        await Shell.Current.GoToAsync($"//{nameof(SiteEditPage)}");
-    }
-
-    [RelayCommand]
     public async Task ClipBoard(string text) =>
         await Clipboard.Default.SetTextAsync(text);
-    
-    [RelayCommand]
-    public async void DicplayAction(Site site)
-    {
-        var responce = await Shell.Current.DisplayActionSheet("Меню", null, null, "Отредактировать", "Удалить", "Добавить аккаунт", "Показать аккаунты");
-        if (responce == "Отредактировать")
-        {
-            var @params = new Dictionary<string, object>
-            {
-                { "Name", site.Name },
-                { "Site", site }
-            };
-            await Shell.Current.GoToAsync($"//{nameof(SiteEditPage)}", @params);
-        }
-        else if (responce == "Удалить")
-        {
-        }
-        else if (responce == "Добавить аккаунт")
-        {
-        }
-        else if (responce == "Показать аккаунты")
-        {
-        }
-    }
 
-    /*
-     * 
-     */
+    [RelayCommand]
+    public async Task Add() =>
+        await Shell.Current.GoToAsync($"//{nameof(SiteEditPage)}");
 }
