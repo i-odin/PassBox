@@ -12,7 +12,7 @@
     </ContentPage.BindingContext>
 
     <StackLayout Margin="5">
-        <CollectionView ItemsSource="{Binding Sites}">
+        <CollectionView ItemsSource="{Binding Sites}" VerticalOptions="FillAndExpand">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="m:Site">
                     <Border Stroke ="{DynamicResource Primary}">

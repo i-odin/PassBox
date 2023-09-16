@@ -29,7 +29,13 @@ public partial class SiteViewModel : BaseViewModel
                 Name = "Vk", 
                 Address = "vk.ru",
                 Accounts = new List<SiteAccount>{ new SiteAccount { Name = "VK-пароль", Password = Guid.NewGuid().ToString(), Description = "это VK" } }
-            } 
+            },
+            new Site {
+                Id = Guid.NewGuid(),
+                Name = "Mail",
+                Address = "mail.ru",
+                Accounts = new List<SiteAccount>{ new SiteAccount { Name = "Mail-пароль", Password = Guid.NewGuid().ToString(), Description = "это mail" } }
+            }
         };
     }
 
