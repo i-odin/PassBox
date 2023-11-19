@@ -1,9 +1,10 @@
-﻿namespace PassBox.Mobile;
-
-public partial class AppShell : Shell
+﻿namespace PassBox.Mobile
 {
-    public AppShell()
+    public partial class AppShell : Shell
     {
-        InitializeComponent();
+        public AppShell()
+        {
+            InitializeComponent();
+        }
     }
 }

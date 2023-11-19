@@ -1,7 +1,7 @@
 ﻿using Common.EFCore.Configurations;
-using PassBox.Mobile.Models.Base;
+using PassBox.Dal.Models.Base;
 
-namespace PassBox.Mobile.DataBase.Configurations;
+namespace PassBox.Dal.Configurations;
 
 public class EncryptEntityConfiguration<TEntity> : EntityConfiguration<TEntity> where TEntity : EncryptEntity
 {

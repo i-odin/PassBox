@@ -1,6 +1,6 @@
-﻿using PassBox.Mobile.Models.Base;
+﻿using PassBox.Dal.Models.Base;
 
-namespace PassBox.Mobile.Models;
+namespace PassBox.Dal.Models;
 
 public class Site : PassBoxEntity
 {

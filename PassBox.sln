@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.32804.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PassBox.Mobile", "src\PassBox.Mobile\PassBox.Mobile.csproj", "{E844B81C-A625-41A1-A91B-1ECB9D56D0E5}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E08D89B7-1BB4-48EB-8D62-495AC7FBF955}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{97CC9A27-42E6-47A4-B99C-5F1A1BCF8955}"
@@ -13,18 +11,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Core", "..\Common\sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.EFCore", "..\Common\src\Common.EFCore\Common.EFCore.csproj", "{04047519-A8FE-46FD-9CBF-9F508625ABBE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PassBox.Dal", "src\PassBox.Dal\PassBox.Dal.csproj", "{78CCF5D1-7FE9-44A0-80F2-B68B9CC59B20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassBox.Mobile", "src\PassBox.Mobile\PassBox.Mobile.csproj", "{C7BEB9FE-9ADE-4F2D-BD81-936FC1969ED7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E844B81C-A625-41A1-A91B-1ECB9D56D0E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E844B81C-A625-41A1-A91B-1ECB9D56D0E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E844B81C-A625-41A1-A91B-1ECB9D56D0E5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{E844B81C-A625-41A1-A91B-1ECB9D56D0E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E844B81C-A625-41A1-A91B-1ECB9D56D0E5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E844B81C-A625-41A1-A91B-1ECB9D56D0E5}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{FDA6E1B2-D7CD-42EC-83A4-CCF9E4CCB8B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FDA6E1B2-D7CD-42EC-83A4-CCF9E4CCB8B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDA6E1B2-D7CD-42EC-83A4-CCF9E4CCB8B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,14 +29,25 @@ Global
 		{04047519-A8FE-46FD-9CBF-9F508625ABBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04047519-A8FE-46FD-9CBF-9F508625ABBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04047519-A8FE-46FD-9CBF-9F508625ABBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78CCF5D1-7FE9-44A0-80F2-B68B9CC59B20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78CCF5D1-7FE9-44A0-80F2-B68B9CC59B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78CCF5D1-7FE9-44A0-80F2-B68B9CC59B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78CCF5D1-7FE9-44A0-80F2-B68B9CC59B20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7BEB9FE-9ADE-4F2D-BD81-936FC1969ED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7BEB9FE-9ADE-4F2D-BD81-936FC1969ED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7BEB9FE-9ADE-4F2D-BD81-936FC1969ED7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C7BEB9FE-9ADE-4F2D-BD81-936FC1969ED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7BEB9FE-9ADE-4F2D-BD81-936FC1969ED7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7BEB9FE-9ADE-4F2D-BD81-936FC1969ED7}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{E844B81C-A625-41A1-A91B-1ECB9D56D0E5} = {E08D89B7-1BB4-48EB-8D62-495AC7FBF955}
 		{FDA6E1B2-D7CD-42EC-83A4-CCF9E4CCB8B5} = {97CC9A27-42E6-47A4-B99C-5F1A1BCF8955}
 		{04047519-A8FE-46FD-9CBF-9F508625ABBE} = {97CC9A27-42E6-47A4-B99C-5F1A1BCF8955}
+		{78CCF5D1-7FE9-44A0-80F2-B68B9CC59B20} = {E08D89B7-1BB4-48EB-8D62-495AC7FBF955}
+		{C7BEB9FE-9ADE-4F2D-BD81-936FC1969ED7} = {E08D89B7-1BB4-48EB-8D62-495AC7FBF955}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0E18E664-09E1-4B63-8F3F-40FA6842F309}

@@ -1,6 +1,6 @@
 ﻿using Common.Core.Models;
 
-namespace PassBox.Mobile.Models.Base;
+namespace PassBox.Dal.Models.Base;
 
 public abstract class PassBoxEntity : Entity
 {

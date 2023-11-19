@@ -1,24 +1,27 @@
 ﻿using CommunityToolkit.Maui;
-using PassBox.Mobile.DataBase;
-using PassBox.Mobile.ViewModels;
+using Microsoft.Extensions.Logging;
 
-namespace PassBox.Mobile;
-
-public static class MauiProgram
+namespace PassBox.Mobile
 {
-    public static MauiApp CreateMauiApp()
+    public static class MauiProgram
     {
-        var builder = MauiApp.CreateBuilder();
-        builder.UseMauiApp<App>()
-            .UseMauiCommunityToolkit()
-            .ConfigureFonts(fonts =>
-            {
-                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-            })
-            .Services
-            .AddSqlite<ApplicationContext>($"Filename={Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PassBox.db")}");
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
+            builder
+                .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
+                .ConfigureFonts(fonts =>
+                {
+                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                });
 
-        return builder.Build();
+#if DEBUG
+    		builder.Logging.AddDebug();
+#endif
+
+            return builder.Build();
+        }
     }
 }

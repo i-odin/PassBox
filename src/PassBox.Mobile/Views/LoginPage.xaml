@@ -49,7 +49,7 @@
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
-            
+
         </StackLayout>
     </Grid>
 </ContentPage>
