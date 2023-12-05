@@ -17,12 +17,12 @@ public partial class LoginPageViewModel : BaseViewModel
     public async virtual Task Login()
     {
         //TODO: Логика проверки логина и пароля
-        await Shell.Current.GoToAsync($"//{nameof(SiteViewPage)}");
+        await Shell.Current.GoToAsync(SiteViewPage.Location);
     }
 
     [RelayCommand]
-    public async virtual void Register()
+    public async virtual Task Register()
     {
-        await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
+        await Shell.Current.GoToAsync(RegisterPage.Location);
     }
 }

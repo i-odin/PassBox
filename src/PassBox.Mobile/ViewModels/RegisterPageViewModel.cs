@@ -9,7 +9,7 @@ public partial class RegisterPageViewModel : LoginPageViewModel
         await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
     }
 
-    public async override void Register()
+    public async override Task Register()
     {
         //TODO: Логика регистрации
         await base.Login();

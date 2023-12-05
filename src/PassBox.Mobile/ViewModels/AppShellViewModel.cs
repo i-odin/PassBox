@@ -7,7 +7,7 @@ namespace PassBox.Mobile.ViewModels;
 public partial class AppShellViewModel : BaseViewModel
 {
     [RelayCommand]
-    public async void SignOut()
+    public async Task SignOut()
     {
         await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
     }

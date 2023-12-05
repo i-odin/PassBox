@@ -2,7 +2,9 @@ namespace PassBox.Mobile.Views;
 
 public partial class SiteViewPage : ContentPage
 {
-	public SiteViewPage()
+	public const string Location = "//SiteViewPage";
+
+    public SiteViewPage()
 	{
 		InitializeComponent();
 	}

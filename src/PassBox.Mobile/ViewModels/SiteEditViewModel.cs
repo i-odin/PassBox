@@ -3,25 +3,53 @@ using CommunityToolkit.Mvvm.Input;
 using PassBox.Dal.Models;
 using PassBox.Mobile.ViewModels.Base;
 using PassBox.Mobile.Views;
+using System.Collections.ObjectModel;
 
 namespace PassBox.Mobile.ViewModels;
 
 [QueryProperty(nameof(Site), nameof(Site))]
 public partial class SiteEditViewModel : BaseViewModel
 {
+    public SiteEditViewModel()
+    {
+        InitializeSiteAndAccount();
+    }
+
     [ObservableProperty]
-    private Site _site = new Site();
+    private Site _site;
+
+    public ObservableCollection<SiteAccount> SiteAccounts { get; set; }
 
     [RelayCommand]
-    public void Submit()
+    public async Task Submit()
     {
         var qwe = Site;
-        Back();
+        InitializeSiteAndAccount();
+        await Back();
     }
 
     [RelayCommand]
-    public async void Back()
+    public async Task Back()
     {
-        await Shell.Current.GoToAsync($"//{nameof(SiteViewPage)}");
+        InitializeSiteAndAccount();
+        await Shell.Current.GoToAsync(SiteViewPage.Location);
+    }
+
+    [RelayCommand]
+    public void AddAccount()
+    {
+        SiteAccounts.Add(SiteAccount.Make<SiteAccount>());
+    }
+
+    private void InitializeSiteAndAccount()
+    {
+        Site = Site.Make<Site>();
+        if (SiteAccounts == null)
+            SiteAccounts = new ObservableCollection<SiteAccount> { SiteAccount.Make<SiteAccount>() };
+        else
+        {
+            SiteAccounts.Clear();
+            AddAccount();
+        }
     }
 }
