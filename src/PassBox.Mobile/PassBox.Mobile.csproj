@@ -65,7 +65,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\PassBox.Dal\PassBox.Dal.csproj" />
+	  <ProjectReference Include="..\PassBox.Infrastructure.Data\PassBox.Infrastructure.Data.csproj" />
 	</ItemGroup>
 
 </Project>

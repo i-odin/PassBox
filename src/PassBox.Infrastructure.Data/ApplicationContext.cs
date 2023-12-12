@@ -1,7 +1,7 @@
 ﻿using Common.EFCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace PassBox.Dal;
+namespace PassBox.Infrastructure.Data;
 
 public class ApplicationContext : DataBaseContext<ApplicationContext>
 {

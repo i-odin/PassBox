@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Common\src\Common.EFCore\Common.EFCore.csproj" />
+    <ProjectReference Include="..\..\..\Common\src\Common.Core\Common.Core.csproj" />
   </ItemGroup>
 
 </Project>

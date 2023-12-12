@@ -1,4 +1,4 @@
-﻿namespace PassBox.Dal.Models;
+﻿namespace PassBox.Domain.Models;
 
 public class SiteAccount : Account
 {

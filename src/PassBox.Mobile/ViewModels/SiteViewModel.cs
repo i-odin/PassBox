@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using PassBox.Dal.Models;
+using PassBox.Domain.Models;
 using PassBox.Mobile.ViewModels.Base;
 using PassBox.Mobile.Views;
 using System.Collections.ObjectModel;

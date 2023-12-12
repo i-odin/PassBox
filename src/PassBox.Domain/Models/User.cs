@@ -1,6 +1,6 @@
-﻿using PassBox.Dal.Models.Base;
+﻿using PassBox.Domain.Models.Base;
 
-namespace PassBox.Dal.Models;
+namespace PassBox.Domain.Models;
 
 public class User : EncryptEntity
 {

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PassBox.Mobile.Views.SiteEditPage"
              xmlns:vm="clr-namespace:PassBox.Mobile.ViewModels;assembly=PassBox.Mobile"
-             xmlns:m="clr-namespace:PassBox.Dal.Models;assembly=PassBox.Dal"
+             xmlns:m="clr-namespace:PassBox.Domain.Models;assembly=PassBox.Domain"
              Title="Сайт">
 
     <ContentPage.BindingContext>
