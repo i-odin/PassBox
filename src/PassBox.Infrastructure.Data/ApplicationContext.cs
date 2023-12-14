@@ -11,8 +11,6 @@ public class ApplicationContext : DataBaseContext<ApplicationContext>
     {
         //TODO: Разобраться с первым созданием базы, прикрутить миграцию
         Database.EnsureCreated();
-
-        //options.UseSqlite("");
     }
 
     public DbSet<Site> Sites { get; set; }
@@ -20,6 +18,7 @@ public class ApplicationContext : DataBaseContext<ApplicationContext>
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfiguration(new SiteConfiguration());
+        builder.ApplyConfiguration(new AccountConfiguration());
         base.OnModelCreating(builder);
     }
 }
