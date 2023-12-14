@@ -65,7 +65,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\PassBox.Infrastructure.Data\PassBox.Infrastructure.Data.csproj" />
+	  <ProjectReference Include="..\PassBox.Services\PassBox.Services.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using PassBox.Domain.Models;
+using PassBox.Infrastructure.Data;
 using PassBox.Mobile.ViewModels.Base;
 using PassBox.Mobile.Views;
 using System.Collections.ObjectModel;
@@ -8,37 +9,13 @@ namespace PassBox.Mobile.ViewModels;
 
 public partial class SiteViewModel : BaseViewModel
 {
-    public SiteViewModel()
+    private readonly ApplicationContext _applicationContext;
+    public SiteViewModel(ApplicationContext applicationContext)
     {
-        Sites = new ObservableCollection<Site> {
-            new Site {
-                Id = Guid.NewGuid(),
-                Name = "Google",
-                Address = "google.com",
-                Accounts = new List<SiteAccount>{ new SiteAccount { Name = "Google-пароль", Password = Guid.NewGuid().ToString(), Description = "это Google" } }
-            },
-            new Site {
-                Id = Guid.NewGuid(),
-                Name = "Yandex",
-                Address = "yandex.ru",
-                Accounts = new List<SiteAccount>{ new SiteAccount { Name = "Yandex-пароль", Password = Guid.NewGuid().ToString(), Description = "это Yandex" } }
-            },
-            new Site {
-                Id = Guid.NewGuid(),
-                Name = "Vk",
-                Address = "vk.ru",
-                Accounts = new List<SiteAccount>{ new SiteAccount { Name = "VK-пароль", Password = Guid.NewGuid().ToString(), Description = "это VK" } }
-            },
-            new Site {
-                Id = Guid.NewGuid(),
-                Name = "Mail",
-                Address = "mail.ru",
-                Accounts = new List<SiteAccount>{ new SiteAccount { Name = "Mail-пароль", Password = Guid.NewGuid().ToString(), Description = "это mail" } }
-            }
-        };
+        _applicationContext = applicationContext;
     }
 
-    public ObservableCollection<Site> Sites { get; set; }
+    public ObservableCollection<Site> Sites { get; set; } = new ObservableCollection<Site>();
     public bool IsExpanded { get; set; }
 
     [RelayCommand]
@@ -66,6 +43,60 @@ public partial class SiteViewModel : BaseViewModel
             //site.Accounts = null;
             //item.Name = "Зашифровали";
         }
+    }
+    
+    public void Load()
+    {
+        Sites.Clear();
+        foreach (var item in _applicationContext.Sites)
+            Sites.Add(item);
+
+        /*Sites.Add(Site.Make<Site>(x =>
+        {
+            x.Name = "Google";
+            x.Address = "google.com";
+            x.Accounts = new List<Account> {
+                    Account.Make<Account>(x => {
+                        x.Name = "Google-пароль";
+                        x.Data = Guid.NewGuid().ToString();
+                        x.Description = "это Google";
+                    }) };
+        }));
+        Sites.Add(Site.Make<Site>(x =>
+        {
+            x.Name = "Yandex";
+            x.Address = "yandex.ru";
+            x.Accounts = new List<Account> {
+                    Account.Make<Account>(x => {
+                        x.Name = "Yandex-пароль";
+                        x.Data = Guid.NewGuid().ToString();
+                        x.Description = "это Yandex";
+                    }) };
+        }));
+        Sites.Add(Site.Make<Site>(x =>
+        {
+            x.Name = "Vk";
+            x.Address = "vk.ru";
+            x.Accounts = new List<Account> {
+                    Account.Make<Account>(x => {
+                        x.Name = "VK-пароль";
+                        x.Data = Guid.NewGuid().ToString();
+                        x.Description = "это VK";
+                    })
+                };
+        }));
+        Sites.Add(Site.Make<Site>(x =>
+        {
+            x.Name = "Mail";
+            x.Address = "mail.ru";
+            x.Accounts = new List<Account> {
+                    Account.Make<Account>(x => {
+                        x.Name = "Mail-пароль";
+                        x.Data = Guid.NewGuid().ToString();
+                        x.Description = "это mail";
+                    })
+                };
+        }));*/
     }
 
     [RelayCommand]

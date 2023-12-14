@@ -1,5 +1,10 @@
 ﻿using CommunityToolkit.Maui;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using PassBox.Infrastructure.Data;
+using PassBox.Mobile.ViewModels;
+using PassBox.Mobile.Views;
+using PassBox.Services.Cryptography;
 
 namespace PassBox.Mobile
 {
@@ -20,6 +25,20 @@ namespace PassBox.Mobile
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            
+            builder.Services.AddTransient<AppShell>();
+            builder.Services.AddTransient<SiteViewPage>();
+            builder.Services.AddTransient<SiteEditPage>();
+
+            builder.Services.AddTransient<AppShellViewModel>();
+            builder.Services.AddTransient<SiteViewModel>();
+            builder.Services.AddTransient<SiteEditViewModel>();
+            
+            builder.Services.AddTransient<IEncryptionService, EncryptionService>();
+            builder.Services.AddTransient<IAlgorithmFactory, AlgorithmFactory>();
+            
+            builder.Services.AddDbContext<ApplicationContext>(options => 
+                options.UseSqlite("Filename=passboxdb.db"));
 
             return builder.Build();
         }

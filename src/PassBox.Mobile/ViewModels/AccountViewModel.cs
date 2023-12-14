@@ -10,7 +10,7 @@ public partial class AccountViewModel : BaseViewModel
     {
         get
         {
-            return new List<Account> { new Account { Name = "Логин", Password = "фывлт2ш315тр198нат9фн1" }, new Account { Name = "фрпфыыджпфжд", Password = "фылафлыт 3215735", Description = "aadngn35" } };
+            return new List<Account> { new Account { Name = "Логин", Data = "фывлт2ш315тр198нат9фн1" }, new Account { Name = "фрпфыыджпфжд", Data = "фылафлыт 3215735", Description = "aadngn35" } };
         }
     }
 }

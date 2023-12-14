@@ -7,10 +7,6 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="Сайты">
 
-    <ContentPage.BindingContext>
-        <vm:SiteViewModel />
-    </ContentPage.BindingContext>
-
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -46,9 +42,9 @@
                                                     <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0" HorizontalOptions ="Start"/>
                                                     <ImageButton Source="clipboard.png" Command="{Binding Source={x:RelativeSource AncestorType = {x:Type vm:SiteViewModel}}, Path=ClipBoardCommand}"
                                                             CommandParameter="{Binding Name}" Grid.Row="0" Grid.Column="1" HeightRequest="20" HorizontalOptions="End"/>
-                                                    <Label Text="{Binding Password}" Grid.Row="1" Grid.Column="0" HorizontalOptions ="Start"/>
+                                                    <Label Text="{Binding Data}" Grid.Row="1" Grid.Column="0" HorizontalOptions ="Start"/>
                                                     <ImageButton Source="clipboard.png" Command="{Binding Source={x:RelativeSource AncestorType = {x:Type vm:SiteViewModel}}, Path=ClipBoardCommand}"
-                                                            CommandParameter="{Binding Password}" Grid.Row="1" Grid.Column="1" HeightRequest="20" HorizontalOptions="End"/>
+                                                            CommandParameter="{Binding Data}" Grid.Row="1" Grid.Column="1" HeightRequest="20" HorizontalOptions="End"/>
                                                     <Label Text="{Binding Description}" Grid.Row="2" Grid.Column="0" HorizontalOptions ="Start"/>
                                                 </Grid>
                                             </DataTemplate>

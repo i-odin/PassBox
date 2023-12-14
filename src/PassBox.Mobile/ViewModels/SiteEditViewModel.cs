@@ -1,8 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using PassBox.Domain.Models;
+using PassBox.Infrastructure.Data;
 using PassBox.Mobile.ViewModels.Base;
 using PassBox.Mobile.Views;
+using PassBox.Services.Cryptography;
 using System.Collections.ObjectModel;
 
 namespace PassBox.Mobile.ViewModels;
@@ -10,20 +12,44 @@ namespace PassBox.Mobile.ViewModels;
 [QueryProperty(nameof(Site), nameof(Site))]
 public partial class SiteEditViewModel : BaseViewModel
 {
-    public SiteEditViewModel()
+    public const string Master = "123";
+    private readonly IEncryptionService _encryptionService;
+    private readonly ApplicationContext _applicationContext;
+    public SiteEditViewModel(ApplicationContext applicationContext, IEncryptionService encryptionService)
     {
+        _encryptionService = encryptionService;
+        _applicationContext = applicationContext;
         InitializeSiteAndAccount();
     }
 
     [ObservableProperty]
     private Site _site;
 
-    public ObservableCollection<SiteAccount> SiteAccounts { get; set; }
+    public ObservableCollection<Account> Accounts { get; set; }
 
     [RelayCommand]
     public async Task Submit()
     {
-        var qwe = Site;
+        foreach (var item in Accounts)
+        {
+            _encryptionService.Encrypt(item, SiteEditViewModel.Master);
+
+            if (Site.Accounts == null)
+                Site.Accounts = new List<Account>();
+
+            Site.Accounts.Add(item);
+        }
+        
+        _applicationContext.Sites.Add(Site);
+
+        try
+        {
+            await _applicationContext.SaveChangesAsync();
+        }
+        catch (Exception ex) { 
+        }
+        
+
         InitializeSiteAndAccount();
         await Back();
     }
@@ -38,17 +64,17 @@ public partial class SiteEditViewModel : BaseViewModel
     [RelayCommand]
     public void AddAccount()
     {
-        SiteAccounts.Add(SiteAccount.Make<SiteAccount>());
+        Accounts.Add(Account.Make<Account>());
     }
 
     private void InitializeSiteAndAccount()
     {
         Site = Site.Make<Site>();
-        if (SiteAccounts == null)
-            SiteAccounts = new ObservableCollection<SiteAccount> { SiteAccount.Make<SiteAccount>() };
+        if (Accounts == null)
+            Accounts = new ObservableCollection<Account> { Account.Make<Account>() };
         else
         {
-            SiteAccounts.Clear();
+            Accounts.Clear();
             AddAccount();
         }
     }

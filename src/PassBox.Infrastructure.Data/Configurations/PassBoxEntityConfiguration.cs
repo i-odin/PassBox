@@ -4,7 +4,7 @@ using PassBox.Domain.Models.Base;
 
 namespace PassBox.Infrastructure.Data.Configurations;
 
-internal class PassBoxEntityConfiguration<TEntity> : EntityConfiguration<TEntity>
+public class PassBoxEntityConfiguration<TEntity> : EntityConfiguration<TEntity>
     where TEntity : PassBoxEntity
 {
     public override void Configure(EntityTypeBuilder<TEntity> buider)

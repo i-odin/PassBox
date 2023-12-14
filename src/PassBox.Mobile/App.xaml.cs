@@ -2,11 +2,13 @@
 {
     public partial class App : Application
     {
-        public App()
+        //public App()
+        public App(AppShell page)
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = page;
+            //MainPage = new AppShell();
         }
     }
 }

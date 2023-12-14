@@ -1,4 +1,6 @@
-﻿using System.Security.Cryptography;
+﻿using PassBox.Domain.Models.Enums;
+using PassBox.Domain.Models.Interface;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace PassBox.Services.Cryptography;
@@ -7,20 +9,6 @@ public interface IEncryptionService
 {
     void Decrypt(IEncrypt input, string unlockKey);
     void Encrypt(IEncrypt input, string unlockKey);
-}
-
-public enum DataType { EAS = 1 }
-public enum EncType { RSA_OAEP = 1 }
-public enum MasterType { Rfc_10000_sha256 = 1 }
-
-public interface IEncrypt
-{
-    string Data { get; set; }
-    string EncKey { get; set; }
-    string PrivKey { get; set; }
-    DataType DataType { get; set; }
-    EncType EncType { get; set; }
-    MasterType MasterType { get; set; }
 }
 
 public class EncryptionService : IEncryptionService

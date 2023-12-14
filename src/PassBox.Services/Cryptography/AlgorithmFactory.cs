@@ -1,4 +1,6 @@
-﻿namespace PassBox.Services.Cryptography;
+﻿using PassBox.Domain.Models.Enums;
+
+namespace PassBox.Services.Cryptography;
 
 public interface IAlgorithmFactory
 {
