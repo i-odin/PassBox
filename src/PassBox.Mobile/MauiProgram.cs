@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using PassBox.Infrastructure.Data;
 using PassBox.Mobile.ViewModels;
 using PassBox.Mobile.Views;
+using PassBox.Services;
 using PassBox.Services.Cryptography;
 
 namespace PassBox.Mobile
@@ -33,9 +34,10 @@ namespace PassBox.Mobile
             builder.Services.AddTransient<AppShellViewModel>();
             builder.Services.AddTransient<SiteViewModel>();
             builder.Services.AddTransient<SiteEditViewModel>();
-            
-            builder.Services.AddTransient<IEncryptionService, EncryptionService>();
-            builder.Services.AddTransient<IAlgorithmFactory, AlgorithmFactory>();
+
+            builder.Services.AddScoped<IAccountSiteService, AccountSiteService>(); 
+            builder.Services.AddScoped<IEncryptionService, EncryptionService>();
+            builder.Services.AddScoped<IAlgorithmFactory, AlgorithmFactory>();
             
             builder.Services.AddDbContext<ApplicationContext>(options => 
                 options.UseSqlite("Filename=passboxdb.db"));

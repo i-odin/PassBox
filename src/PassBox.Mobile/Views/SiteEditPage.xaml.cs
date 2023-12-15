@@ -4,7 +4,9 @@ namespace PassBox.Mobile.Views;
 
 public partial class SiteEditPage : ContentPage
 {
-	public SiteEditPage(SiteEditViewModel viewModel)
+	public const string Location = "//SiteEditPage";
+
+    public SiteEditPage(SiteEditViewModel viewModel)
 	{
 		InitializeComponent();
 
